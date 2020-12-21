@@ -1,0 +1,49 @@
+﻿@page
+@model MyContacts.Pages.PhoneBooks.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PhoneBook</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PhoneBook.FirstName" class="control-label"></label>
+                <input asp-for="PhoneBook.FirstName" class="form-control" />
+                <span asp-validation-for="PhoneBook.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneBook.LastName" class="control-label"></label>
+                <input asp-for="PhoneBook.LastName" class="form-control" />
+                <span asp-validation-for="PhoneBook.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneBook.PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneBook.PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneBook.PhoneNumber" class="text-danger"></span>
+            </div>
+            
+            <label asp-for="PhoneBook.GroupingID" class="control-label">Grouping</label>
+            <select asp-for="PhoneBook.GroupingID" class="form-control" asp-items="ViewBag.GroupingID">Choose</select>
+            <span asp-validation-for="PhoneBook.GroupingID" class="text-danger"></span>
+            <br>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
